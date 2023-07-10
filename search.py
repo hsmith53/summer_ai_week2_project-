@@ -73,6 +73,27 @@ def tinyMazeSearch(problem):
     return  [s, s, w, s, w, w, s, w]
 
 def depthFirstSearch(problem: SearchProblem):
+    #frontier : stack
+    visited = []
+    my_stack = util.Stack()
+    goal_found = False
+    start = problem.getStartState()
+    moves = []
+    my_stack.push((start, moves, 0))
+    current_state = start
+    
+    while not goal_found:
+        current_state = problem.getSuccessors(current_state)
+        current_state, moves, _ = my_stack.pop()
+      
+        if problem.isGoalState(current_state):
+            goal_found = True
+            return moves
+        else:
+            visited.append(current_state)
+            for child, move, _ in problem.getSuccessors(current_state):
+                if(not(child in visited)):
+                    my_stack.push((child, moves + [move], _))
     """
     Search the deepest nodes in the search tree first.
 
@@ -86,12 +107,33 @@ def depthFirstSearch(problem: SearchProblem):
     print("Is the start a goal?", problem.isGoalState(problem.getStartState()))
     print("Start's successors:", problem.getSuccessors(problem.getStartState()))
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    #util.raiseNotDefined()
 
 def breadthFirstSearch(problem: SearchProblem):
+    #frontier : q
+    visited = []
+    my_queue = util.Queue()
+    goal_found = False
+    start = problem.getStartState()
+    moves = []
+    my_queue.push((start, moves, 0))
+    current_state = start
+    
+    while not goal_found:
+        current_state = problem.getSuccessors(current_state)
+        current_state, moves, _ = my_queue.pop()
+      
+        if problem.isGoalState(current_state):
+            goal_found = True
+            return moves
+        else:
+            visited.append(current_state)
+            for child, move, _ in problem.getSuccessors(current_state):
+                if(not(child in visited)):
+                    my_queue.push((child, moves + [move], _))
     """Search the shallowest nodes in the search tree first."""
     "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    #util.raiseNotDefined()
 
 def uniformCostSearch(problem: SearchProblem):
     """Search the node of least total cost first."""
