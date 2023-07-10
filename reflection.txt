@@ -1,0 +1,5 @@
+I really enjoyed working on this project, as I found it to be a nice challenge that enabled me to see what DPS and BPS looks like in python code.
+For this project, I spent several hours working over the weekend until I thought I had an almost complete version of the code, although it still threw some errors.
+One part of this project that I found quite challenging was working with a large program that was created by someone else. 
+Before this class, I have only ever worked on projects from scratch, but it was a fun challenge to try and understand someone else's program.
+Prior to class on Monday, I attended office hours, where I had a very constructive conversation with Jackson, who looked over my code and offered me advice.
